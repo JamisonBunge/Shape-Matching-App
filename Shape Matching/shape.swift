@@ -7,7 +7,9 @@
 import UIKit
 import Foundation
 
-let fullShapeList = ["square","star","triangle","circle","rhombus","hexicon"]
+let fullShapeList = ["square","star","oval","oval"]
+
+//let fullShapeList = ["square","star","triangle","circle","rhombus","hexicon","oval"]
 var shapeNames = fullShapeList
 
 enum ShapeTag : Int {
@@ -101,9 +103,14 @@ struct shapeInfo {
             
             let randomIndex = Int(arc4random_uniform(UInt32(shapeNames.count)))
             name = shapeNames[randomIndex]
-            print(shapeNames[randomIndex])
+           
+                  print("/////////////")
+            print("\(randomIndex),shape names count:\(shapeNames.count)")
             shapeNames.remove(at: randomIndex)
             
+            print("removed")
+            
+      
             return name
         }
         

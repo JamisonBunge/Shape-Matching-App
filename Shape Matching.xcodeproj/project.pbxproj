@@ -20,6 +20,10 @@
 		3D84EC5921B6F6DB001FE7D6 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC5321B6F6DB001FE7D6 /* star.png */; };
 		3D84EC5A21B6F6DB001FE7D6 /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC5421B6F6DB001FE7D6 /* square.png */; };
 		3D84EC5B21B6F6DB001FE7D6 /* hexicon in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC5521B6F6DB001FE7D6 /* hexicon */; };
+		3D84EC5D21BB9BC0001FE7D6 /* oval.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC5C21BB9BC0001FE7D6 /* oval.png */; };
+		3D84EC6121BB9FF3001FE7D6 /* starPeg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC5E21BB9FF3001FE7D6 /* starPeg.png */; };
+		3D84EC6221BB9FF3001FE7D6 /* squarePeg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC5F21BB9FF3001FE7D6 /* squarePeg.png */; };
+		3D84EC6321BB9FF3001FE7D6 /* ovalPeg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D84EC6021BB9FF3001FE7D6 /* ovalPeg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		3D84EC5321B6F6DB001FE7D6 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		3D84EC5421B6F6DB001FE7D6 /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		3D84EC5521B6F6DB001FE7D6 /* hexicon */ = {isa = PBXFileReference; lastKnownFileType = file; path = hexicon; sourceTree = "<group>"; };
+		3D84EC5C21BB9BC0001FE7D6 /* oval.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oval.png; sourceTree = "<group>"; };
+		3D84EC5E21BB9FF3001FE7D6 /* starPeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starPeg.png; sourceTree = "<group>"; };
+		3D84EC5F21BB9FF3001FE7D6 /* squarePeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squarePeg.png; sourceTree = "<group>"; };
+		3D84EC6021BB9FF3001FE7D6 /* ovalPeg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ovalPeg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,10 @@
 		3D84EC4F21B6F6DB001FE7D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3D84EC6021BB9FF3001FE7D6 /* ovalPeg.png */,
+				3D84EC5F21BB9FF3001FE7D6 /* squarePeg.png */,
+				3D84EC5E21BB9FF3001FE7D6 /* starPeg.png */,
+				3D84EC5C21BB9BC0001FE7D6 /* oval.png */,
 				3D84EC5021B6F6DB001FE7D6 /* circle.png */,
 				3D84EC5121B6F6DB001FE7D6 /* triangle.png */,
 				3D84EC5221B6F6DB001FE7D6 /* rhombus */,
@@ -155,13 +167,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D84EC4421B6F47B001FE7D6 /* LaunchScreen.storyboard in Resources */,
+				3D84EC6221BB9FF3001FE7D6 /* squarePeg.png in Resources */,
+				3D84EC5D21BB9BC0001FE7D6 /* oval.png in Resources */,
 				3D84EC5721B6F6DB001FE7D6 /* triangle.png in Resources */,
 				3D84EC4121B6F47B001FE7D6 /* Assets.xcassets in Resources */,
 				3D84EC5821B6F6DB001FE7D6 /* rhombus in Resources */,
+				3D84EC6121BB9FF3001FE7D6 /* starPeg.png in Resources */,
 				3D84EC5921B6F6DB001FE7D6 /* star.png in Resources */,
 				3D84EC3F21B6F47A001FE7D6 /* Main.storyboard in Resources */,
 				3D84EC5B21B6F6DB001FE7D6 /* hexicon in Resources */,
 				3D84EC5A21B6F6DB001FE7D6 /* square.png in Resources */,
+				3D84EC6321BB9FF3001FE7D6 /* ovalPeg.png in Resources */,
 				3D84EC5621B6F6DB001FE7D6 /* circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

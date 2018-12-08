@@ -83,11 +83,11 @@ class ViewController: UIViewController {
         liveShape.shapeImage.image = image
         
         //set peg
-        let pegName = liveShape.name + ".png"
-        print(pegName)
+        let pegName = liveShape.name + "Peg.png"
+        //print(pegName)
         let pegImage = UIImage(named: pegName)
         liveShape.pegImage.image = pegImage
-        
+
         
     }
     
