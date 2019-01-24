@@ -1,0 +1,39 @@
+//i need to change the app so its not hard coded limited to three shapes
+
+
+//what do i want to do to the app going forward..
+
+I need to randomize the peg generation within a certain range.
+
+//I need to change the snap mechanicsm so when within a certain range you
+snap to it and the picture peg/shape go away and the done picture
+is replaced at the peg location 
+
+//problems so far:
+	pegged information is not hodling the right coords
+
+//big bug,
+	--> you can't run the game with only three shapes
+
+//i want to make an actualy storyboad type thing
+
+auto layout constraints
+get modern art and solve proboem with picture demiensons
+randomize peg locations inside of the artFrame range
+have doc scale for 3-6 shapes 
+rejection of shape in wrong peg
+animation for the above step 
+change from the hardcoded docpositions
+generalize the program away from 3 shapes
+
+	
+1] get aFrame's borders
+1.1] Do some prepocessing on the coords
+
+	we want to deal with centers only
+	the range that the images taken over should never clip a peg 
+2] randomly select a number inside of the range 
+
+
+I also could do it so it randomly picks three zones. 
+this would avoid having to do conflict resolution 

@@ -10,13 +10,29 @@ import UIKit
 
 class ModelGame {
     
+    
     //how do i want to store the shapes?
     //array of shape struct?
     
     //var imagesArray : [UIImageView]
     var setOfShapes : [shapeInfo] = []
+    //var music = true
+    var sound : Bool
     let dock : shapeInfo
+    let size : Int
+    var isReady : Bool
+    var numberOfShapesLeft : Int {
+        didSet {
+            if numberOfShapesLeft == 0 {
+                print("newGame")
+                numberOfShapesLeft = size
+                //this new game isnt even used really, come back and evaluate this 
+                }
+            }
+
+    }
     
+    var score : Int
     //    var squareInShapeInfo: shapeInfo
     //    var starInShapeInfo: shapeInfo
     //    var triangleInShapeInfo: shapeInfo
@@ -24,6 +40,13 @@ class ModelGame {
     
     func touch() {
         //do nothing
+    }
+    
+    func newShapes() {
+        
+        for i in 0..<setOfShapes.count {
+            setOfShapes[i].newName()
+        }
     }
     
     func grabShape(liveShape: UIImageView) -> shapeInfo {
@@ -44,36 +67,7 @@ class ModelGame {
     //    }
     func grabShapeInfo(name: String ) -> shapeInfo {
         
-        var info : shapeInfo = dock
-        
-        //            if tag == 1 {
-        //                //sqaure
-        //                info = squareInShapeInfo
-        //            } else if tag == 2{
-        //                //star case
-        //                info = starInShapeInfo
-        //            } else if tag == 3 {
-        //                //trianlge case
-        //                info = triangleInShapeInfo
-        //            } else if tag == 5 {
-        //                info = DockInShapeInfo
-        //            } else {
-        //                info = DockInShapeInfo
-        //            }
-        //        print("count of array:\(setOfShapes.count)")
-        //
-        //
-        //        for object in setOfShapes {
-        //            if object.shapeImage.tag == tag {
-        //                print("does this ever happen")
-        //                return object
-        //        }
-        //        }
-        //        print("this should never happen: \(tag)")
-        //         return info
-        
-        //TO DO
-        //instead of looping, use lindex(where: to grab the shape you want
+        let info : shapeInfo = dock
         
         if let i = setOfShapes.index(where: { $0.name == name }) {
             //   print("hidden name: \(setOfShapes[i].name),tag: \(setOfShapes[i].shapeImage.tag) ")
@@ -101,75 +95,56 @@ class ModelGame {
         
         
     }
+    func updatePeggedCordsFromMovedImage(peg: UIImageView) {
+        
+        if let i = setOfShapes.index(where: { $0.pegImage == peg }) {
+            setOfShapes[i].peggedCenterX = peg.center.x
+            setOfShapes[i].peggedCenterY = peg.center.y
+            setOfShapes[i].peggedMinX = peg.frame.minX
+            setOfShapes[i].peggedMaxX = peg.frame.maxX
+            setOfShapes[i].peggedMinY = peg.frame.minY
+            setOfShapes[i].peggedMaxY = peg.frame.maxY
+        }
+        
+    }
+    
     
     func addShape(shape: UIImageView, peg: UIImageView) {
         setOfShapes.append(shapeInfo.init(shape: shape, peg: peg))
-        
     }
+    
     
     init(size: Int, dockPassed: UIImageView) {
-        
-        //for now, hardcode the three shapes
-        
-        //        squareInShapeInfo = shapeInfo.init(shape: squarePassed, peg: squarePassed)
-        //        starInShapeInfo = shapeInfo.init(shape: starPassed, peg: starPassed)
-        //        triangleInShapeInfo = shapeInfo.init(shape: trianglePassed, peg: trianglePassed)
+
         dock = shapeInfo.init(shape: dockPassed, peg: dockPassed)
-        
-        //        setOfShapes.append(squareInShapeInfo)
-        //        setOfShapes.append(starInShapeInfo)
-        //        setOfShapes.append(triangleInShapeInfo)
-        //
+        self.size = size
+        numberOfShapesLeft = size
+        score = 0
+        isReady = false
+        sound = true
+    }
+    
+    func newGame() {
         
     }
     
+    func newGame(size: Int) {
+        
+    }
+    
+  
+    
+    
+    func inRange(object: shapeInfo, target: shapeInfo) -> Bool {
+    
+        if (((object.shapeImage.center.x  > target.peggedMinX) && (object.shapeImage.center.x  < target.peggedMaxX))
+            && ((object.shapeImage.center.y > target.peggedMinY) && (object.shapeImage.center.y < target.peggedMaxY))) {
+                return true
+        } else {
+              return false
+        }
+    }
 }
 
 
 
-
-
-
-
-
-
-
-//    let defaultsSquare : (xMin: CGFloat, xMax: CGFloat,
-//    yMin: CGFloat, yMax: CGFloat, xCenter: CGFloat, yCenter: CGFloat)
-//    let defaultsStar : (xMin: CGFloat, xMax: CGFloat,
-//    yMin: CGFloat, yMax: CGFloat, xCenter: CGFloat, yCenter: CGFloat)
-//    let defaultsTriangle : (xMin: CGFloat, xMax: CGFloat,
-//    yMin: CGFloat, yMax: CGFloat, xCenter: CGFloat, yCenter: CGFloat)
-//
-//    let defaultsDock : (xMin: CGFloat, xMax: CGFloat,
-//    yMin: CGFloat, yMax: CGFloat, xCenter: CGFloat, yCenter: CGFloat)
-
-
-
-
-
-
-
-//    func getDefaultInformation(tag: Int ) -> (xMin: CGFloat, xMax: CGFloat,
-//        yMin: CGFloat, yMax: CGFloat, xCenter: CGFloat, yCenter: CGFloat) {
-//
-//        var info : (xMin: CGFloat, xMax: CGFloat,
-//        yMin: CGFloat, yMax: CGFloat, xCenter: CGFloat, yCenter: CGFloat)
-//
-////        if tag == 1 {
-////            //sqaure
-////            info = defaultsSquare
-////        } else if tag == 2{
-////            //star case
-////            info = defaultsStar
-////        } else if tag == 3 {
-////            //trianlge case
-////            info = defaultsTriangle
-////        } else if tag == 4 {
-////            info = defaultsDock
-////        } else {
-////            info = defaultsDock
-////            }
-//        return info
-//    }
-//

@@ -7,10 +7,10 @@
 import UIKit
 import Foundation
 
-let fullShapeList = ["square","star","oval","oval"]
+let fullShapeList = ["square","circle","pentagon","square","circle","pentagon","heart"]
 
-//let fullShapeList = ["square","star","triangle","circle","rhombus","hexicon","oval"]
 var shapeNames = fullShapeList
+var count = 1
 
 enum ShapeTag : Int {
     case Square = 1
@@ -31,18 +31,18 @@ struct shapeInfo {
     let shelfedCenterY : CGFloat
     
     // 'in-the-peg' coords
-    let peggedMinX : CGFloat
-    let peggeddMaxX : CGFloat
+    var peggedMinX : CGFloat
+    var peggedMaxX : CGFloat
     
-    let peggedMinY : CGFloat
-    let peggedMaxY : CGFloat
+    var peggedMinY : CGFloat
+    var peggedMaxY : CGFloat
     
-    let peggedCenterX : CGFloat
-    let peggedCenterY : CGFloat
+    var peggedCenterX : CGFloat
+    var peggedCenterY : CGFloat
     
     //live photo
-    let shapeImage : UIImageView
-    let pegImage : UIImageView
+    var shapeImage : UIImageView
+    var pegImage : UIImageView
     
     // shape info
     var name : String = ""
@@ -66,58 +66,50 @@ struct shapeInfo {
         
         //set pegged coords
         peggedMinX = peg.frame.minX
-        peggeddMaxX = peg.frame.minX
+        peggedMaxX = peg.frame.maxX
         
-        peggedMinY = peg.frame.minX
-        peggedMaxY = peg.frame.minX
+        peggedMinY = peg.frame.minY
+        peggedMaxY = peg.frame.maxY
         
-        peggedCenterX = peg.frame.minX
-        peggedCenterY = peg.frame.minX
+        peggedCenterX = peg.center.x
+        peggedCenterY = peg.center.y
         
         //link images
         shapeImage = shape
         pegImage = peg
         
-        
-        
         if(shape.tag==5) {
             isDock = true
         }
         
-        
         // set shape info
         name = selectRandomShape()
         // tag = 0
-        
-        
+    
         
     }
+    
+    mutating func newName() {
+         self.name = selectRandomShape()
+    }
+
     
     func selectRandomShape() -> String
     {
         if(isDock) {
             return "dock"
         } else {
-            
             var name : String
-            
+            count = count + 1
             let randomIndex = Int(arc4random_uniform(UInt32(shapeNames.count)))
             name = shapeNames[randomIndex]
-           
-                  print("/////////////")
-            print("\(randomIndex),shape names count:\(shapeNames.count)")
             shapeNames.remove(at: randomIndex)
-            
-            print("removed")
-            
-      
             return name
         }
-        
-        // return "dock"
-        
     }
-    
 }
 
+func resetShapes() {
+    shapeNames = fullShapeList
+}
 
